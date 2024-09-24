@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <link rel="stylesheet" href="dashboard.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Rubik', sans-serif;
+            background-color: #141D1F; /* Frame background color */
+        }
+    </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Frame -->
+    <div class="Frame">
+        <!-- Dashboard Text Label -->
+        <div class="title">Dashboard</div>
+        <div class="subtitle">Dashboard</div>
+        <div class="sales-overview">
+            <div class="overview-header">Sales Overview</div>
+        
+            <!-- First Sales Box: Annual Sales -->
+            <div class="sales-box">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-chart-line" style="color: #42BFFE; font-size: larger;"></i>
+                </div>
+                <div class="info">
+                    <div class="sales-type">Annual Sales</div>
+                    <div class="sales-data">
+                        <i class="fa-solid fa-peso-sign" style="color: #FFFFFF; margin-right: 5px; font-size: small;"></i>
+                        <div class="sales-amount">101,458</div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Second Sales Box: Quarterly Sales -->
+            <div class="sales-box">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-file-alt" style="color: #FE9C7D; font-size: larger;"></i>
+                </div>
+                <div class="info">
+                    <div class="sales-type">Quarterly Sales</div>
+                    <div class="sales-data">
+                        <i class="fa-solid fa-peso-sign" style="color: #FFFFFF; margin-right: 5px; font-size: small;"></i>
+                        <div class="sales-amount">75,245</div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Third Sales Box: Daily Sales -->
+            <div class="sales-box">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-chart-line" style="color: #62AA07; font-size: larger;"></i>
+                </div>
+                <div class="info">
+                    <div class="sales-type">Daily Sales</div>
+                    <div class="sales-data">
+                        <i class="fa-solid fa-peso-sign" style="color: #FFFFFF; margin-right: 5px; font-size: small;"></i>
+                        <div class="sales-amount">5,234</div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Fourth Sales Box: Daily Profit -->
+            <div class="sales-box">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-file-alt" style="color: #319088; font-size: larger;"></i>
+                </div>
+                <div class="info">
+                    <div class="sales-type">Daily Profit</div>
+                    <div class="sales-data">
+                        <i class="fa-solid fa-peso-sign" style="color: #FFFFFF; margin-right: 5px; font-size: small;"></i>
+                        <div class="sales-amount">1,024</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="purchase-overview">
+            <div class="overview-header">Purchase Overview</div>
+        
+            <!-- First Sales Box: Annual Sales -->
+            <div class="sales-box">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-shopping-cart" style="color: #42BFFE; font-size: larger;"></i>
+                </div>
+                <div class="info">
+                    <div class="sales-type">No of Purchase</div>
+                    <div class="sales-data">
+                        <div class="sales-amount">46</div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Second Sales Box: Quarterly Sales -->
+            <div class="sales-box">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-ban"style="color: #FE9C7D; font-size: larger;"></i>
+                </div>
+                <div class="info">
+                    <div class="sales-type">Cancel Order</div>
+                    <div class="sales-data">
+                        <div class="sales-amount">05</div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Third Sales Box: Daily Sales -->
+            <div class="sales-box">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-dollar-sign"style="color: #62AA07; font-size: larger;"></i>
+                </div>
+                <div class="info">
+                    <div class="sales-type">Purchase Amount</div>
+                    <div class="sales-data">
+                        <div class="sales-amount">828</div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Fourth Sales Box: Daily Profit -->
+            <div class="sales-box">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-arrow-left"style="color: #319088; font-size: larger;"></i>
+                </div>
+                <div class="info">
+                    <div class="sales-type">Returns</div>
+                    <div class="sales-data">
+                        <div class="sales-amount">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+        <div class="stock-overview">
+            <div class="stock-header">Stock</div>
+            <div class="circle-and-info-container">
+                <div class="circle-container">
+                    <svg class="circle" viewBox="0 0 100 100">
+                        <circle class="background" cx="50" cy="50" r="45"/>
+                        <circle class="foreground" cx="50" cy="50" r="45" stroke-dasharray="282.6" stroke-dashoffset="141.3"/>
+                    </svg>
+                    <div class="circle-content">
+                        <div class="circle-number">100</div>
+                        <div class="circle-label">Total Amount</div>
+                    </div>
+                </div>
+                <div class="stock-info-container">
+                    <div class="stock-info">
+                        <div class="color-label holding-stock"></div>
+                        <div class="stock-text">Holding Stock</div>
+                    </div>
+                    <div class="stock-info">
+                        <div class="color-label pending-stock"></div>
+                        <div class="stock-text">Pending Stock</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+         
+        <div class="container">
+            <!-- Text Labels -->
+            <div class="label title">Sales Statistics</div>
+            <div class="label main-value">89,030</div>
+            <div class="label comparison">86% More than last year</div>
+            <div class="label value value1">106,000</div>
+            <div class="label value value2">90,410</div>
+            <div class="label value value3">89,030</div>
+            <div class="label value value4">85,602</div>
+            <div class="label value value5">81,101</div>
+            <div class="label date date1">January 19</div>
+            <div class="label date date2">February 19</div>
+            <div class="label date date3">March 19</div>
+            <div class="label date date4">April 19</div>
+            <div class="label date date5">May 19</div>
+            <div class="label date date6">June 19</div>
+            <div class="label main-value1">89,030</div>
+    
+            <!-- Icons -->
+            <i class="fa-solid fa-peso-sign icon peso peso1"></i>
+            <i class="fa-solid fa-peso-sign icon peso peso2"></i>
+            <i class="fa-solid fa-peso-sign icon peso peso3"></i>
+            <i class="fa-solid fa-peso-sign icon peso peso4"></i>
+            <i class="fa-solid fa-peso-sign icon peso peso5"></i>
+            <i class="fa-solid fa-peso-sign icon peso top3"></i>
+            <i class="fa-solid fa-peso-sign icon top1"></i>
+            <i class="fa-solid fa-arrow-up-long icon top2"></i>
+    
+            <!-- Shapes -->
+            <div class="shape ellipse1"></div>
+            <div class="shape ellipse2"></div>
+            <div class="shape rect1"></div>
+            <div class="shape rect2"></div>
+            <div class="shape polygon"></div>
+    
+            <!-- Lines -->
+            <div class="line horizontal1"></div>
+            <div class="line horizontal2"></div>
+            <div class="line horizontal3"></div>
+            <div class="line horizontal4"></div>
+            <div class="line horizontal5"></div>
+            <div class="line horizontal6"></div>
+            <div class="line vertical"></div>
+        </div>
+        
+                
+        <!-- Taskbar -->
+        <nav class="taskbar">
+            <div class="logo">
+                <img src="loggo.jpg" alt="Sulit-Tech Logo" class="logo-icon">
+                <span class="sulit-tech">SULIT-TECH</span>
+            </div>
+            <div class="main-menu">Main Menu</div>
+            <ul class="menu">
+                <li class="menu-item dashbox" onclick="highlightBox('dashbox')">
+                    <i class="fa-solid fa-tachometer-alt" style="margin-right: 30px; font-size: 25px;""></i>
+                    <span class="menu-text">Dashboard</span>
+                </li>
+                <li class="menu-item prodbox" onclick="location.href='product.html'; highlightBox('prodbox')">
+                    <i class="fa-solid fa-qrcode" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Product</span>
+                </li>
+                <li class="menu-item salesbox" onclick="location.href='customerSale.html'; highlightBox('salesbox')">
+                    <i class="fa-solid fa-arrow-up-wide-short" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Sales</span>
+                </li>
+                <li class="menu-item repbox" onclick="location.href='reports.html';highlightBox('repbox')">
+                    <i class="fa-solid fa-clipboard-list" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Report</span>
+                </li>
+                <li class="menu-item transbox" onclick="location.href='transaction.html';highlightBox('transbox')">
+                    <i class="fa-solid fa-receipt" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Transaction</span>
+                </li>
+                <li class="menu-item adbox" onclick="location.href='admin.html';highlightBox('adbox')">
+                    <i class="fa-solid fa-user-shield" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Admin</span>
+                </li>
+            </ul>
+            <div class="main-menu">Help & Settings</div>
+            <ul class="menu">
+                <li class="menu-item helpbox" onclick="location.href='hc.html';highlightBox('helpbox')">
+                    <i class="fa-solid fa-question-circle" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Help & Center</span>
+                </li>
+                <li class="menu-item setbox" onclick="location.href='settings.html';highlightBox('setbox')">
+                    <i class="fa-solid fa-cog" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Settings</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="navSearch">
+                <input type="text" class="navSearchInput" placeholder="Search...">
+                <i class="fa fa-xmark navClearIcon"></i>
+            </div>
+            <div class="navProfileSection" id="profileSection">
+                <img src="photo.jpg" alt="Profile" class="navProfileImage">
+                <i class="fa fa-caret-down" style="margin-left: 5px;"></i> <!-- Caret Down Icon -->
+                <div class="navDropdownContent">
+                    <img src="photo.jpg" alt="Profile" class="navDropdownProfileImage">
+                    <span class="navDropdownUserName">Carlos Miguel Ochia</span>
+                    <span class="navDropdownJobPosition">Warehouse specialist</span>
+                    <button id="navViewProfileButton" class="navViewProfileButton">View Profile</button>
+                    <hr class="navHorizontalLine">
+                    <a href="Login.html" class="navSignOutButton">Sign Out</a>
+                </div>
+            </div>
+        </nav>
+        
+        </header>
+    </div>
+   
+    <div class="chart-container">
+        <h2 class="chart-title">Top Selling Items</h2>
+        <canvas id="pieChart" width="200" height="200"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

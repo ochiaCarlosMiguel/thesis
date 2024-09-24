@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Transaction</title>
+    <link rel="stylesheet" href="transaction.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Rubik', sans-serif;
+            background-color: #141D1F; /* Frame background color */
+        }
+    </style>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="Frame"></div>
+        <!-- Product Text Label -->
+        <div class="title">Order Purchased</div>
+        
+         <!-- Taskbar -->
+         <nav class="taskbar">
+            <div class="logo">
+                <img src="loggo.jpg" alt="Sulit-Tech Logo" class="logo-icon">
+                <span class="sulit-tech">SULIT-TECH</span>
+            </div>
+            <div class="main-menu">Main Menu</div>
+            <ul class="menu">
+                <li class="menu-item dashbox" onclick="location.href='dashboard.html';highlightBox('dashbox')">
+                    <i class="fa-solid fa-tachometer-alt" style="margin-right: 30px; font-size: 25px;""></i>
+                    <span class="menu-text">Dashboard</span>
+                </li>
+                <li class="menu-item prodbox" onclick="location.href='product.html'; highlightBox('prodbox')">
+                    <i class="fa-solid fa-qrcode" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Product</span>
+                </li>
+                <li class="menu-item salesbox" onclick="location.href='customerSale.html'; highlightBox('salesbox')">
+                    <i class="fa-solid fa-arrow-up-wide-short" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Sales</span>
+                </li>
+                <li class="menu-item repbox" onclick="location.href='reports.html';highlightBox('repbox')">
+                    <i class="fa-solid fa-clipboard-list" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Report</span>
+                </li>
+                <li class="menu-item transbox" onclick="highlightBox('transbox')">
+                    <i class="fa-solid fa-receipt" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Transaction</span>
+                </li>
+                <li class="menu-item adbox" onclick="location.href='admin.html';highlightBox('adbox')">
+                    <i class="fa-solid fa-user-shield" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Admin</span>
+                </li>
+            </ul>
+            <div class="main-menu">Help & Settings</div>
+            <ul class="menu">
+                <li class="menu-item helpbox" onclick="location.href='hc.html';highlightBox('helpbox')">
+                    <i class="fa-solid fa-question-circle" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Help & Center</span>
+                </li>
+                <li class="menu-item setbox" onclick="location.href='settings.html';highlightBox('setbox')">
+                    <i class="fa-solid fa-cog" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Settings</span>
+                </li>
+            </ul>
+        </nav>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="navSearch">
+                <input type="text" class="navSearchInput" placeholder="Search...">
+                <i class="fa fa-xmark navClearIcon"></i>
+            </div>
+            <div class="navProfileSection" id="profileSection">
+                <img src="photo.jpg" alt="Profile" class="navProfileImage">
+                <i class="fa fa-caret-down" style="margin-left: 5px;"></i> <!-- Caret Down Icon -->
+                <div class="navDropdownContent">
+                    <img src="photo.jpg" alt="Profile" class="navDropdownProfileImage">
+                    <span class="navDropdownUserName">Carlos Miguel Ochia</span>
+                    <span class="navDropdownJobPosition">Warehouse specialist</span>
+                    <button id="navViewProfileButton" class="navViewProfileButton">View Profile</button>
+                    <hr class="navHorizontalLine">
+                    <a href="Login.html" class="navSignOutButton">Sign Out</a>
+                </div>
+            </div>
+        </nav>
+        
+        </header>
+    </div>
+
+    <nav class="transactionFiltering">
+<!-- Filter Section 1: Purchase Status -->
+<div class="filter-section">
+    <h3 class="filter-label">PURCHASE STATUS</h3>
+    <div class="filter-buttons">
+      <button class="filter-btn" id="allBtn">
+        <span class="btn-text">All</span>
+        <span class="label-number">32</span>
+      </button>
+      <button class="filter-btn" id="quoteBtn">
+        <span class="btn-text">Quote</span>
+        <span class="label-number">12</span>
+      </button>
+      <button class="filter-btn" id="shippedBtn">
+        <span class="btn-text">Shipped</span>
+        <span class="label-number">8</span>
+      </button>
+      <button class="filter-btn" id="receivedBtn">
+        <span class="btn-text">Received</span>
+        <span class="label-number">5</span>
+      </button>
+    </div>
+  </div>
+      
+        <!-- Filter Section 2: Filter By -->
+        <div class="filter-section">
+          <h3 class="filter-label">FILTER BY</h3>
+          <button class="dropdown-btn">Location <i class="fa fa-caret-down"></i></button>
+          <button class="dropdown-btn">Order Date <i class="fa fa-caret-down"></i></button>
+          <button class="dropdown-btn">Vendor <i class="fa fa-caret-down"></i></button>
+          <button class="dropdown-btn">Product Status <i class="fa fa-caret-down"></i></button>
+        </div>
+      
+        <!-- Filter Section 3: Total Amount Range -->
+        <div class="filter-section">
+          <h3 class="filter-label">TOTAL AMOUNT RANGE</h3>
+          <div class="amount-range">
+            <input type="text" class="amount-input" placeholder="Min">
+            <i class="fa fa-peso-sign amount-icon"></i>
+          </div>
+          <div class="amount-range">
+            <input type="text" class="amount-input" placeholder="Max">
+            <i class="fa fa-peso-sign amount-icon"></i>
+          </div>
+        </div>
+      
+        <!-- Filter Section 4: Reset Button -->
+        <button class="reset-filter">
+          Reset Filter <i class="fa fa-refresh"></i>
+        </button>
+      </nav>
+      <!--------------Search Bar---------------->
+      <div class="searchBar">
+        <input type="text" placeholder="Search..." id="searchInput" />
+        <span class="searchIcon"><i class="fas fa-search"></i></span>
+        <span class="clearIcon" onclick="clearSearch()"><i class="fas fa-times"></i></span>
+    </div>
+    <!--------------New Purchase Button---------------->
+    <a href="generalInfo.html" class="new-purchase-link">
+      <button class="new-purchase-btn">
+          <i class="fas fa-plus"></i> New Purchase
+      </button>
+  </a>
+    <!--------------Order Tracking------------------>
+    <div class="orderContainer">
+      <div class="scrollable">
+        <div class="orderInfo">
+          <!-- Top Section -->
+          <div class="order-header">
+            <div class="order-details">
+              <span class="order-id">PO-652</span>
+              <span class="product-name">Cold Laminating Film matte 3.5ft</span>
+            </div>
+            <div class="order-status">
+              <div class="price">
+                <i class="fa-solid fa-peso-sign icon-peso"></i> 3,200
+              </div>
+              <div class="payment-status">
+                <div class="status-box">
+                  <i class="fa-solid fa-check"></i> Paid
+                </div>
+              </div>
+              <div class="ellipsis">
+                <i class="fa fa-ellipsis-v"></i>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Middle Section: Circle with Location Information -->
+          <div class="order-location">
+            <div class="location-circle">P</div>
+            <div class="location-text">
+              Pulilan Warehouse • <i class="fa fa-map-marker"></i> 3000, Malolos Bulacan • <i class="fa fa-file-invoice"></i> Billed
+            </div>
+          </div>
+    
+          <!-- Bottom Section: Order Tracking -->
+          <div class="orderTracking">
+            <div class="tracking-header">
+              <span class="tracking-label">Order is on shipping</span>
+              <span class="tracking-date">May 23, 2024</span>
+            </div>
+            <div class="tracking-icons">
+              <div class="tracking-step active">
+                <i class="fa fa-box"></i> Preparing
+              </div>
+              <div class="tracking-line"></div>
+              <div class="tracking-step active">
+                <i class="fa fa-truck"></i> Ready to Ship
+              </div>
+              <div class="tracking-line"></div>
+              <div class="tracking-step">
+                <i class="fa fa-shipping-fast"></i> In Transit
+              </div>
+              <div class="tracking-line"></div>
+              <div class="tracking-step">
+                <i class="fa fa-check"></i> Received
+              </div>
+            </div>
+            <div class="track-shipment">
+              <a href="#" class="track-shipment-link">Track Shipment</a>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Duplicate orderInfo for more orders -->
+        <div class="orderInfo">
+          <!-- Add similar content as above for additional orders -->
+          <div class="order-header">
+            <div class="order-details">
+              <span class="order-id">PO-653</span>
+              <span class="product-name">Laminating Pouches 3.5ft</span>
+            </div>
+            <div class="order-status">
+              <div class="price">
+                <i class="fa-solid fa-peso-sign icon-peso"></i> 4,000
+              </div>
+              <div class="payment-status">
+                <div class="status-box">
+                  <i class="fa-solid fa-check"></i> Paid
+                </div>
+              </div>
+              <div class="ellipsis">
+                <i class="fa fa-ellipsis-v"></i>
+              </div>
+            </div>
+          </div>
+    
+          <div class="order-location">
+            <div class="location-circle">P</div>
+            <div class="location-text">
+              Main Warehouse • <i class="fa fa-map-marker"></i> 4000, Manila • <i class="fa fa-file-invoice"></i> Billed
+            </div>
+          </div>
+    
+          <div class="orderTracking">
+            <div class="tracking-header">
+              <span class="tracking-label">Order is being processed</span>
+              <span class="tracking-date">May 24, 2024</span>
+            </div>
+            <div class="tracking-icons">
+              <div class="tracking-step active">
+                <i class="fa fa-box"></i> Preparing
+              </div>
+              <div class="tracking-line"></div>
+              <div class="tracking-step">
+                <i class="fa fa-truck"></i> Ready to Ship
+              </div>
+              <div class="tracking-line"></div>
+              <div class="tracking-step">
+                <i class="fa fa-shipping-fast"></i> In Transit
+              </div>
+              <div class="tracking-line"></div>
+              <div class="tracking-step">
+                <i class="fa fa-check"></i> Received
+              </div>
+            </div>
+            <div class="track-shipment">
+              <a href="#" class="track-shipment-link">Track Shipment</a>
+            </div>
+          </div>
+        </div>
+        <div class="orderInfo">
+          <!-- Add similar content as above for additional orders -->
+          <div class="order-header">
+            <div class="order-details">
+              <span class="order-id">PO-654</span>
+              <span class="product-name">Laminating Pouches 3.5ft</span>
+            </div>
+            <div class="order-status">
+              <div class="price">
+                <i class="fa-solid fa-peso-sign icon-peso"></i> 4,000
+              </div>
+              <div class="payment-status">
+                <div class="status-box">
+                  <i class="fa-solid fa-check"></i> Paid
+                </div>
+              </div>
+              <div class="ellipsis">
+                <i class="fa fa-ellipsis-v"></i>
+              </div>
+            </div>
+          </div>
+    
+          <div class="order-location">
+            <div class="location-circle">P</div>
+            <div class="location-text">
+              Main Warehouse • <i class="fa fa-map-marker"></i> 4000, Manila • <i class="fa fa-file-invoice"></i> Billed
+            </div>
+          </div>
+    
+          <div class="orderTracking">
+            <div class="tracking-header">
+              <span class="tracking-label">Order is being processed</span>
+              <span class="tracking-date">May 24, 2024</span>
+            </div>
+            <div class="tracking-icons">
+              <div class="tracking-step active">
+                <i class="fa fa-box"></i> Preparing
+              </div>
+              <div class="tracking-line"></div>
+              <div class="tracking-step">
+                <i class="fa fa-truck"></i> Ready to Ship
+              </div>
+              <div class="tracking-line"></div>
+              <div class="tracking-step">
+                <i class="fa fa-shipping-fast"></i> In Transit
+              </div>
+              <div class="tracking-line"></div>
+              <div class="tracking-step">
+                <i class="fa fa-check"></i> Received
+              </div>
+            </div>
+            <div class="track-shipment">
+              <a href="#" class="track-shipment-link">Track Shipment</a>
+            </div>
+          </div>
+        </div>
+        <!-- Repeat above structure for additional orders -->
+      </div>
+    </div>
+    
+   
+        <script src="transaction.js"></script>
+</body>
+</html>

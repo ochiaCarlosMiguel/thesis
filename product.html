@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="product.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Rubik', sans-serif;
+            background-color: #141D1F; /* Frame background color */
+        }
+    </style>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="Frame">
+        
+         <!-- Taskbar -->
+         <nav class="taskbar">
+            <div class="logo">
+                <img src="loggo.jpg" alt="Sulit-Tech Logo" class="logo-icon">
+                <span class="sulit-tech">SULIT-TECH</span>
+            </div>
+            <div class="main-menu">Main Menu</div>
+            <ul class="menu">
+                <li class="menu-item dashbox" onclick="location.href='dashboard.html';highlightBox('dashbox')">
+                    <i class="fa-solid fa-tachometer-alt" style="margin-right: 30px; font-size: 25px;""></i>
+                    <span class="menu-text">Dashboard</span>
+                </li>
+                <li class="menu-item prodbox" onclick="highlightBox('prodbox')">
+                    <i class="fa-solid fa-qrcode" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Product</span>
+                </li>
+                <li class="menu-item salesbox" onclick="location.href='customerSale.html'; highlightBox('salesbox')">
+                    <i class="fa-solid fa-arrow-up-wide-short" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Sales</span>
+                </li>
+                <li class="menu-item repbox" onclick="location.href='reports.html';highlightBox('repbox')">
+                    <i class="fa-solid fa-clipboard-list" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Report</span>
+                </li>
+                <li class="menu-item transbox" onclick="location.href='transaction.html';highlightBox('transbox')">
+                    <i class="fa-solid fa-receipt" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Transaction</span>
+                </li>
+                <li class="menu-item adbox" onclick="location.href='admin.html';highlightBox('adbox')">
+                    <i class="fa-solid fa-user-shield" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Admin</span>
+                </li>
+            </ul>
+            <div class="main-menu">Help & Settings</div>
+            <ul class="menu">
+                <li class="menu-item helpbox" onclick="location.href='hc.html';highlightBox('helpbox')">
+                    <i class="fa-solid fa-question-circle" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Help & Center</span>
+                </li>
+                <li class="menu-item setbox" onclick="location.href='settings.html';highlightBox('setbox')">
+                    <i class="fa-solid fa-cog" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Settings</span>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="navSearch">
+                <input type="text" class="navSearchInput" placeholder="Search...">
+                <i class="fa fa-xmark navClearIcon"></i>
+            </div>
+            <div class="navProfileSection" id="profileSection">
+                <img src="photo.jpg" alt="Profile" class="navProfileImage">
+                <i class="fa fa-caret-down" style="margin-left: 5px;"></i> <!-- Caret Down Icon -->
+                <div class="navDropdownContent">
+                    <img src="photo.jpg" alt="Profile" class="navDropdownProfileImage">
+                    <span class="navDropdownUserName">Carlos Miguel Ochia</span>
+                    <span class="navDropdownJobPosition">Warehouse specialist</span>
+                    <button id="navViewProfileButton" class="navViewProfileButton">View Profile</button>
+                    <hr class="navHorizontalLine">
+                    <a href="Login.html" class="navSignOutButton">Sign Out</a>
+                </div>
+            </div>
+        </nav>
+<!------------------------Product List---------------------------->
+<div class="rectangleFrame">
+    <div class="headerLabel">
+        <div class="iconContainer">
+            <i class="fas fa-box" style="color: #65AD0B;"></i>
+        </div>
+        <span class="headerText">Manage Inventory</span>
+        <div class="actionButtons">
+            <button class="exportButton"><i class="fas fa-file-export"></i> Export</button>
+            <button class="addItemButton"><i class="fas fa-plus"></i> Add Item</button>
+        </div>
+    </div>
+    <div class="searchBar">
+        <input type="text" placeholder="Search..." id="searchInput" />
+        <span class="searchIcon"><i class="fas fa-search"></i></span>
+        <span class="clearIcon" onclick="clearSearch()"><i class="fas fa-times"></i></span>
+    </div>
+    <div class="header">
+        <div class="headerItem emptyBox"></div>
+        <div class="headerItem">Item Code</div>
+        <div class="headerItem">Item Name</div>
+        <div class="headerItem">Item Group</div>
+        <div class="headerItem">Last Purchase</div>
+        <div class="headerItem">On Hand</div>
+        <div class="headerItem">Actions</div>
+    </div>
+    <div class="scrollableContent">
+        <!-- Row 1 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01456</div>
+            <div class="cell">Ink Tank</div>
+            <div class="cell">Tarpulin Parts</div>
+            <div class="cell">03, May 2024</div>
+            <div class="cell">5pcs</div>
+            <div class="cell actionIcons">
+                <span class="editIcon" onclick="enableEdit(this)"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span onclick="deleteRow(this)">Delete</span>
+                </div>
+            </div>
+        </div>
+        <!-- Row 2 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01457</div>
+            <div class="cell">Capping Set</div>
+            <div class="cell">Tarpulin Parts</div>
+            <div class="cell">05, May 2024</div>
+            <div class="cell">10pcs</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+        <!-- Row 3 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01458</div>
+            <div class="cell">Canvas Paper</div>
+            <div class="cell">Tarpulin Parts</div>
+            <div class="cell">07, May 2024</div>
+            <div class="cell">8pcs</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+                <!-- Row 4 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01457</div>
+            <div class="cell">Capping Set</div>
+            <div class="cell">Tarpulin Parts</div>
+            <div class="cell">05, May 2024</div>
+            <div class="cell">10pcs</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+                <!-- Row 5 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01457</div>
+            <div class="cell">Capping Set</div>
+            <div class="cell">Tarpulin Parts</div>
+            <div class="cell">05, May 2024</div>
+            <div class="cell">10pcs</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+                <!-- Row 6 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01457</div>
+            <div class="cell">Capping Set</div>
+            <div class="cell">Tarpulin Parts</div>
+            <div class="cell">05, May 2024</div>
+            <div class="cell">10pcs</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+                <!-- Row 7 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01457</div>
+            <div class="cell">Capping Set</div>
+            <div class="cell">Tarpulin Parts</div>
+            <div class="cell">05, May 2024</div>
+            <div class="cell">10pcs</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+                <!-- Row 8 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01457</div>
+            <div class="cell">Capping Set</div>
+            <div class="cell">Tarpulin Parts</div>
+            <div class="cell">05, May 2024</div>
+            <div class="cell">10pcs</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+                <!-- Row 9 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01457</div>
+            <div class="cell">Capping Set</div>
+            <div class="cell">Tarpulin Parts</div>
+            <div class="cell">05, May 2024</div>
+            <div class="cell">10pcs</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+                <!-- Row 10 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01457</div>
+            <div class="cell">Capping Set</div>
+            <div class="cell">Tarpulin Parts</div>
+            <div class="cell">05, May 2024</div>
+            <div class="cell">10pcs</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+                <!-- Row 11 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01457</div>
+            <div class="cell">Capping Set</div>
+            <div class="cell">Tarpulin Parts</div>
+            <div class="cell">05, May 2024</div>
+            <div class="cell">10pcs</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+                <!-- Row 12 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01457</div>
+            <div class="cell">Capping Set</div>
+            <div class="cell">Tarpulin Parts</div>
+            <div class="cell">05, May 2024</div>
+            <div class="cell">10pcs</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+                <!-- Row 13 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01457</div>
+            <div class="cell">Capping Set</div>
+            <div class="cell">Tarpulin Parts</div>
+            <div class="cell">05, May 2024</div>
+            <div class="cell">10pcs</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+                <!-- Row 14 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01457</div>
+            <div class="cell">Capping Set</div>
+            <div class="cell">Tarpulin Parts</div>
+            <div class="cell">05, May 2024</div>
+            <div class="cell">10pcs</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="product.js"></script>
+</body>
+</html>

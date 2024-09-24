@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" href="admin.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Rubik', sans-serif;
+            background-color: #141D1F; /* Frame background color */
+        }
+    </style>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="Frame"></div>
+        
+         <!-- Taskbar -->
+         <nav class="taskbar">
+            <div class="logo">
+                <img src="loggo.jpg" alt="Sulit-Tech Logo" class="logo-icon">
+                <span class="sulit-tech">SULIT-TECH</span>
+            </div>
+            <div class="main-menu">Main Menu</div>
+            <ul class="menu">
+                <li class="menu-item dashbox" onclick="location.href='dashboard.html';highlightBox('dashbox')">
+                    <i class="fa-solid fa-tachometer-alt" style="margin-right: 30px; font-size: 25px;""></i>
+                    <span class="menu-text">Dashboard</span>
+                </li>
+                <li class="menu-item prodbox" onclick="location.href='product.html'; highlightBox('prodbox')">
+                    <i class="fa-solid fa-qrcode" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Product</span>
+                </li>
+                <li class="menu-item salesbox" onclick="location.href='customerSale.html'; highlightBox('salesbox')">
+                    <i class="fa-solid fa-arrow-up-wide-short" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Sales</span>
+                </li>
+                <li class="menu-item repbox" onclick="location.href='reports.html';highlightBox('repbox')">
+                    <i class="fa-solid fa-clipboard-list" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Report</span>
+                </li>
+                <li class="menu-item transbox" onclick="location.href='transaction.html';highlightBox('transbox')">
+                    <i class="fa-solid fa-receipt" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Transaction</span>
+                </li>
+                <li class="menu-item adbox" onclick="highlightBox('adbox')">
+                    <i class="fa-solid fa-user-shield" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Admin</span>
+                </li>
+            </ul>
+            <div class="main-menu">Help & Settings</div>
+            <ul class="menu">
+                <li class="menu-item helpbox" onclick="location.href='hc.html';highlightBox('helpbox')">
+                    <i class="fa-solid fa-question-circle" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Help & Center</span>
+                </li>
+                <li class="menu-item setbox" onclick="location.href='settings.html';highlightBox('setbox')">
+                    <i class="fa-solid fa-cog" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Settings</span>
+                </li>
+            </ul>
+        </nav>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="navSearch">
+                <input type="text" class="navSearchInput" placeholder="Search...">
+                <i class="fa fa-xmark navClearIcon"></i>
+            </div>
+            <div class="navProfileSection" id="profileSection">
+                <img src="photo.jpg" alt="Profile" class="navProfileImage">
+                <i class="fa fa-caret-down" style="margin-left: 5px;"></i> <!-- Caret Down Icon -->
+                <div class="navDropdownContent">
+                    <img src="photo.jpg" alt="Profile" class="navDropdownProfileImage">
+                    <span class="navDropdownUserName">Carlos Miguel Ochia</span>
+                    <span class="navDropdownJobPosition">Warehouse specialist</span>
+                    <button id="navViewProfileButton" class="navViewProfileButton">View Profile</button>
+                    <hr class="navHorizontalLine">
+                    <a href="Login.html" class="navSignOutButton">Sign Out</a>
+                </div>
+            </div>
+        </nav>
+        
+        </header>
+    </div>
+   <!-- General Help&Center Taskbar -->
+<nav class="adGeneralTaskbar">
+    <div class="adHeader">
+        Admin
+    </div>
+    <hr class="adDivider">
+    <ul class="adMenu">
+        <!-- Employees Account -->
+        <li class="adItem employeeStyle" onclick="location.href='admin.html'; highlightBox('employeeStyle')">
+            <i class="fa-solid fa-question-circle" style="margin-right: 20px; font-size: 20px;"></i>
+            <span class="adText">Employees Account</span>
+        </li>
+        <!-- Pending Orders -->
+        <li class="adItem pendingBox" onclick="location.href='pendingOrders.html'; highlightBox('pendingBox')">
+            <i class="fa-solid fa-comment-dots" style="margin-right: 20px; font-size: 20px;"></i>
+            <span class="adText">Pending Orders</span>
+        </li>
+        <!-- Discount Proposal -->
+        <li class="adItem discountBox" onclick="location.href='proposal.html'; highlightBox('discountBox')">
+            <i class="fa-solid fa-headset" style="margin-right: 20px; font-size: 20px;"></i>
+            <span class="adText">Discount Proposal</span>
+        </li>
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="rectangleContainer" id="container1">
+        <div class="rectangleBox">
+            <i class="fa-solid fa-users icon"></i>
+        </div>
+        <div class="labelWrapper">
+            <div class="textLabel">Total Employees</div>
+            <div class="numberLabel">192</div>
+        </div>
+    </div>
+
+    <div class="rectangleContainer" id="container2">
+        <div class="rectangleBox">
+            <i class="fa-solid fa-user-check icon"></i>
+        </div>
+        <div class="labelWrapper">
+            <div class="textLabel">Active Employees</div>
+            <div class="numberLabel">181</div>
+        </div>
+    </div>
+</div>
+
+<div class="rectangleFrame">
+    <div class="headerLabel">
+        <div class="iconContainer">
+            <i class="fas fa-user" style="color: #65AD0B;"></i>
+        </div>
+        <span class="headerText">Manage Accounts</span>
+    </div>
+    <div class="searchBar">
+        <input type="text" placeholder="Search..." id="searchInput" />
+        <span class="searchIcon"><i class="fas fa-search"></i></span>
+        <span class="clearIcon" onclick="clearSearch()"><i class="fas fa-times"></i></span>
+    </div>
+    <div class="header">
+        <div class="headerItem emptyBox"></div>
+        <div class="headerItem">Id</div>
+        <div class="headerItem">Name</div>
+        <div class="headerItem">Location</div>
+        <div class="headerItem">Role</div>
+        <div class="headerItem">Account Status</div>
+        <div class="headerItem">Action</div>
+    </div>
+    <div class="scrollableContent">
+        <!-- Row 1 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01451</div>
+            <div class="cell">
+                <div class="profileContainer">
+                    <span>Carlos Miguel Ochia</span>
+                </div>
+            </div>
+            <div class="cell">Manila Office</div>
+            <div class="cell">MANAGER</div>
+            <div class="cell">Active</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+        <!-- Row 2 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01457</div>
+            <div class="cell">
+                <div class="profileContainer">
+                    <span>Alice Smith</span>
+                </div>
+            </div>
+            <div class="cell">Manila Office</div>
+            <div class="cell">MANAGER</div>
+            <div class="cell">Active</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+        <!-- Row 3 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01457</div>
+            <div class="cell">
+                <div class="profileContainer">
+                    <span>John Doe</span>
+                </div>
+            </div>
+            <div class="cell">Manila Office</div>
+            <div class="cell">MANAGER</div>
+            <div class="cell">Active</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+        <!-- Row 4 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01459</div>
+            <div class="cell">
+                <div class="profileContainer">
+                    <span>Jane Roe</span>
+                </div>
+            </div>
+            <div class="cell">Davao Office</div>
+            <div class="cell">STAFF</div>
+            <div class="cell">Inactive</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+        <!-- Row 5 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01460</div>
+            <div class="cell">
+                <div class="profileContainer">
+                    <span>Mike Lee</span>
+                </div>
+            </div>
+            <div class="cell">Iloilo Office</div>
+            <div class="cell">TEAM LEAD</div>
+            <div class="cell">Active</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+        <!-- Row 6 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01461</div>
+            <div class="cell">
+                <div class="profileContainer">
+                    <span>Linda Brown</span>
+                </div>
+            </div>
+            <div class="cell">Baguio Office</div>
+            <div class="cell">ASSISTANT</div>
+            <div class="cell">Active</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+        <!-- Row 7 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01462</div>
+            <div class="cell">
+                <div class="profileContainer">
+                    <span>Tom Green</span>
+                </div>
+            </div>
+            <div class="cell">Cavite Office</div>
+            <div class="cell">INTERN</div>
+            <div class="cell">Active</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+        <!-- Row 8 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01463</div>
+            <div class="cell">
+                <div class="profileContainer">
+                    <span>Emma Stone</span>
+                </div>
+            </div>
+            <div class="cell">Taguig Office</div>
+            <div class="cell">DESIGNER</div>
+            <div class="cell">Inactive</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+        <!-- Row 9 -->
+        <div class="row">
+            <div class="cell fillBox" onclick="toggleFill(this)"></div>
+            <div class="cell">V01464</div>
+            <div class="cell">
+                <div class="profileContainer">
+                    <span>Robert White</span>
+                </div>
+            </div>
+            <div class="cell">Quezon City</div>
+            <div class="cell">ANALYST</div>
+            <div class="cell">Active</div>
+            <div class="cell actionIcons">
+                <span class="editIcon"><i class="fas fa-edit"></i></span>
+                <span class="deleteIcon" onclick="toggleDropdown(event)"><i class="fas fa-ellipsis-v"></i></span>
+                <div class="dropdown">
+                    <span>Delete</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+body {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    background-color: #141D1F; /* Frame background color */
+}
+
+.frame {
+    display: flex;
+    min-width: auto;
+    min-height: auto;
+}
+
+.taskbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 205px;
+    height: 100vh;
+    background-color: #1A2328;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 34px 0 0 20px; /* Retained original positioning */
+}
+
+.logo-icon {
+    width: 39px;
+    height: 34.73px;
+    border-radius: 16px;
+    margin-right: 10px;
+}
+
+.sulit-tech {
+    font-size: 20px;
+    color: #61A905;
+    font-weight: 600; /* Added font-weight for emphasis */
+}
+
+.main-menu {
+    margin: 30px 0 10px 20px; /* Retained original positioning */
+    font-size: 14px; /* Increased font size for better readability */
+    color: #BDC3C7; /* Lighter color for better contrast */
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 0 20px; /* Retained original padding */
+    margin-bottom: 10px; /* Retained original margin-bottom */
+    height: 40px; /* Retained original height */
+    cursor: pointer;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px; /* Added border-radius for a smoother look */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+}
+
+.menu-item:hover {
+    background-color: #2C3E50; /* Darker background on hover */
+    color: #61A905; /* Change text color on hover */
+}
+
+.menu-icon {
+    width: 21px;
+    height: 21px;
+    margin-right: 30px; /* Retained original margin */
+}
+
+.menu-text {
+    font-size: 18px; /* Retained original font size */
+    font-weight: 500; /* Added font-weight for emphasis */
+}
+
+.repbox {
+    background-color: #1D282F;
+    border-right: 2px solid #61A905; /* Retained original border thickness */
+}
+
+.helpbox, .setbox {
+    background-color: #1A2328;
+}
+
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 205px;
+    width: calc(100% - 205px);
+    height: 60px;
+    background-color: #1A2328;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    z-index: 1000;
+}
+
+/* Search Box */
+.navSearch {
+    position: relative;
+    width: 300px;
+    height: 38px;
+    background-color: #101418;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Search Input */
+.navSearchInput {
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Clear Icon */
+.navClearIcon {
+    font-size: 18px;
+    color: #FFFFFF;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+}
+
+/* Profile Section */
+.navProfileSection {
+    position: relative;
+    margin-left: 909px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Profile Image */
+.navProfileImage {
+    width: 40px; /* Adjusted size */
+    height: 40px; /* Adjusted size */
+    border-radius: 50%; /* Circular profile image */
+    object-fit: cover;
+    margin-right: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for effects */
+}
+
+/* Hover Effect */
+.navProfileSection:hover .navProfileImage {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* Blue shadow effect */
+}
+
+/* Caret Down Icon */
+.navProfileSection i {
+    font-size: 18px;
+    color: #FFFFFF; /* Icon color */
+    transition: color 0.2s; /* Smooth color transition */
+    margin-left: 0px; /* Adjust this value to move closer */
+}
+
+.navProfileSection:hover i {
+    color: #0077B5; /* LinkedIn blue on hover */
+}
+
+/* Dropdown Menu */
+.navDropdownContent {
+    position: absolute;
+    right: 0;
+    top: 55px;
+    width: 320px;
+    height: auto;
+    background-color: #1A2328; /* White background for a clean look */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 16px; /* Padding for spacing */
+    opacity: 0; /* For fade effect */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth appearance */
+    transform: translateY(10px); /* Slightly lower initially */
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+/* Show dropdown on click */
+.navProfileSection.active .navDropdownContent {
+    display: block;
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Slide up effect */
+    pointer-events: auto; /* Enable interaction when visible */
+}
+
+/* Dropdown Profile Image */
+.navDropdownProfileImage {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    position: absolute;
+    left: 14px;
+    top: 16px;
+    border: 2px solid #0077B5; /* LinkedIn blue border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* User Name */
+.navDropdownUserName {
+    position: absolute;
+    left: 98px;
+    top: 16px;
+    font-weight: normal;
+    font-size: 20px;
+    font-family: Rubik, sans-serif;
+    color: #FFFFFF; /* Dark gray for text */
+}
+
+/* Job Position */
+.navDropdownJobPosition {
+    position: absolute;
+    left: 98px;
+    top: 45px;
+    font-weight: normal; /* Adjusted weight */
+    font-size: 16px; /* Slightly reduced for hierarchy */
+    font-family: Rubik, sans-serif;
+    color: #666666; /* Medium gray for better contrast */
+}
+
+/* View Profile Button */
+.navViewProfileButton {
+    width: 100%; /* Full width */
+    height: 36px; /* Taller for better clickability */
+    background-color: #0077B5; /* LinkedIn blue */
+    color: #FFFFFF;
+    font-size: 16px; /* Adjusted font size */
+    font-weight: bold;
+    font-family: Roboto, sans-serif;
+    border: none;
+    border-radius: 18px; /* More rounded */
+    cursor: pointer; /* Pointer cursor for buttons */
+    margin-top: 100px; /* Space from above elements */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth color transition */
+}
+
+.navViewProfileButton:hover {
+    background-color: #005582; /* Darker shade on hover */
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+/* Horizontal Line */
+.navHorizontalLine {
+    width: 100%; /* Full width */
+    border: none;
+    border-top: 2px solid #141D1F; /* Light gray for separation */
+    margin: 16px 0; /* Space above and below */
+}
+
+/* Sign Out Button */
+.navSignOutButton {
+    display: block; /* Block display for full width */
+    width: 100%; /* Full width for click area */
+    color: #0077B5; /* LinkedIn blue */
+    font-weight: normal;
+    font-size: 16px; /* Adjusted for better readability */
+    font-family: Roboto, sans-serif;
+    text-align: center; /* Center text */
+    margin-top: 8px; /* Space from above elements */
+    transition: color 0.3s, text-decoration 0.3s; /* Smooth transitions */
+}
+
+.navSignOutButton:hover {
+    color: #FF6F61; /* Color change on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Disabled buttons when inactive */
+.navViewProfileButton:disabled,
+.navSignOutButton.disabled {
+    background-color: #ccc; /* Grayed-out background */
+    cursor: not-allowed; /* Change cursor to indicate it's disabled */
+    opacity: 0.6; /* Slight opacity to indicate it's disabled */
+    pointer-events: none; /* Disable interaction */
+}
+
+.repContainer {
+    position: absolute;
+    width: 1250px;
+    height: 660px;
+    left: calc(100px + 50% - 640px);
+    top: calc(50vh - 315px);
+    background-color: #1A2328;
+    border-radius: 0px;
+    padding: 20px;
+}
+
+.repTitle {
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+.repGenerateButton {
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    width: 136px;
+    height: 46px;
+    background-color: #61A905;
+    color: #FFFFFF;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.repGenerateButton:hover {
+    background-color: #4CAF00;
+}
+
+.repLabel1, .repLabel2, .repLabel3, .repLabel4 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    color: #6B7478;
+}
+
+.repLabel1 { top: 92px; left: 13px; } /* Location */
+.repLabel2 { top: 92px; left: 12px; } /* Type of Report */
+.repLabel3 { top: 155px; left: 13px; } /* Date Started */
+.repLabel4 { top: 155px; left: 10px; } /* Date Ended */
+
+.repDropdownContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.repDropdownWrapper {
+    position: relative;
+}
+
+.repLocationButton {
+    width: 260px;
+    height: 52px;
+    border: 2px solid #6B7478;
+    background-color: transparent;
+    color: #6B7478;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.repLocationButton:hover {
+    border-color: #61A905;
+    background-color: rgba(107, 116, 120, 0.1);
+}
+
+.repCaretIcon {
+    color: #6B7478;
+}
+
+.repDropdownContent {
+    display: none;
+    position: absolute;
+    top: 55px;
+    width: 100%;
+    background-color: #1D282F;
+    z-index: 10;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.repDropdownContent a {
+    color: #FFFFFF;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.repDropdownContent a:hover {
+    background-color: #596265;
+}
+
+.waybillContainer {
+    margin-top: 50px;
+    background-color: #2A3138;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.waybillContainer h3 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.waybillPaper {
+    background-color: #1D282F;
+    height: 300px;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: scroll;
+    color: #FFFFFF;
+}
+
+.repDateInput {
+    width: 240px;
+    height: 52px;
+    padding: 0 10px;
+    border: 2px solid #6B7478;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #6B7478;
+}
+
+.repDateInput:hover {
+    background-color: rgba(107, 116, 120, 0.1);
+}
+
+.repDateIcon {
+    position: absolute;
+    right: 10px;
+    top: 16px;
+    color: #6B7478;
+}

@@ -1,0 +1,917 @@
+body {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    background-color: #141D1F; /* Frame background color */
+}
+
+.frame {
+    display: flex;
+    min-width: auto;
+    min-height: auto;
+}
+
+.taskbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 205px;
+    height: 100vh;
+    background-color: #1A2328;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 34px 0 0 20px; /* Retained original positioning */
+}
+
+.logo-icon {
+    width: 39px;
+    height: 34.73px;
+    border-radius: 16px;
+    margin-right: 10px;
+}
+
+.sulit-tech {
+    font-size: 20px;
+    color: #61A905;
+    font-weight: 600; /* Added font-weight for emphasis */
+}
+
+.main-menu {
+    margin: 30px 0 10px 20px; /* Retained original positioning */
+    font-size: 14px; /* Increased font size for better readability */
+    color: #BDC3C7; /* Lighter color for better contrast */
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 0 20px; /* Retained original padding */
+    margin-bottom: 10px; /* Retained original margin-bottom */
+    height: 40px; /* Retained original height */
+    cursor: pointer;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px; /* Added border-radius for a smoother look */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+}
+
+.menu-item:hover {
+    background-color: #2C3E50; /* Darker background on hover */
+    color: #61A905; /* Change text color on hover */
+}
+
+.menu-icon {
+    width: 21px;
+    height: 21px;
+    margin-right: 30px; /* Retained original margin */
+}
+
+.menu-text {
+    font-size: 18px; /* Retained original font size */
+    font-weight: 500; /* Added font-weight for emphasis */
+}
+
+.dashbox {
+    background-color: #1D282F;
+    border-right: 2px solid #61A905; /* Retained original border thickness */
+}
+
+.helpbox, .setbox {
+    background-color: #1A2328;
+}
+
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 205px;
+    width: calc(100% - 205px);
+    height: 60px;
+    background-color: #1A2328;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    z-index: 1000;
+}
+
+/* Search Box */
+.navSearch {
+    position: relative;
+    width: 300px;
+    height: 38px;
+    background-color: #101418;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Search Input */
+.navSearchInput {
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Clear Icon */
+.navClearIcon {
+    font-size: 18px;
+    color: #FFFFFF;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+}
+
+/* Profile Section */
+.navProfileSection {
+    position: relative;
+    margin-left: 909px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Profile Image */
+.navProfileImage {
+    width: 40px; /* Adjusted size */
+    height: 40px; /* Adjusted size */
+    border-radius: 50%; /* Circular profile image */
+    object-fit: cover;
+    margin-right: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for effects */
+}
+
+/* Hover Effect */
+.navProfileSection:hover .navProfileImage {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* Blue shadow effect */
+}
+
+/* Caret Down Icon */
+.navProfileSection i {
+    font-size: 18px;
+    color: #FFFFFF; /* Icon color */
+    transition: color 0.2s; /* Smooth color transition */
+    margin-left: 0px; /* Adjust this value to move closer */
+}
+
+.navProfileSection:hover i {
+    color: #0077B5; /* LinkedIn blue on hover */
+}
+
+/* Dropdown Menu */
+.navDropdownContent {
+    position: absolute;
+    right: 0;
+    top: 55px;
+    width: 320px;
+    height: auto;
+    background-color: #1A2328; /* White background for a clean look */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 16px; /* Padding for spacing */
+    opacity: 0; /* For fade effect */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth appearance */
+    transform: translateY(10px); /* Slightly lower initially */
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+/* Show dropdown on click */
+.navProfileSection.active .navDropdownContent {
+    display: block;
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Slide up effect */
+    pointer-events: auto; /* Enable interaction when visible */
+}
+
+/* Dropdown Profile Image */
+.navDropdownProfileImage {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    position: absolute;
+    left: 14px;
+    top: 16px;
+    border: 2px solid #0077B5; /* LinkedIn blue border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* User Name */
+.navDropdownUserName {
+    position: absolute;
+    left: 98px;
+    top: 16px;
+    font-weight: normal;
+    font-size: 20px;
+    font-family: Rubik, sans-serif;
+    color: #FFFFFF; /* Dark gray for text */
+}
+
+/* Job Position */
+.navDropdownJobPosition {
+    position: absolute;
+    left: 98px;
+    top: 45px;
+    font-weight: normal; /* Adjusted weight */
+    font-size: 16px; /* Slightly reduced for hierarchy */
+    font-family: Rubik, sans-serif;
+    color: #666666; /* Medium gray for better contrast */
+}
+
+/* View Profile Button */
+.navViewProfileButton {
+    width: 100%; /* Full width */
+    height: 36px; /* Taller for better clickability */
+    background-color: #0077B5; /* LinkedIn blue */
+    color: #FFFFFF;
+    font-size: 16px; /* Adjusted font size */
+    font-weight: bold;
+    font-family: Roboto, sans-serif;
+    border: none;
+    border-radius: 18px; /* More rounded */
+    cursor: pointer; /* Pointer cursor for buttons */
+    margin-top: 100px; /* Space from above elements */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth color transition */
+}
+
+.navViewProfileButton:hover {
+    background-color: #005582; /* Darker shade on hover */
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+/* Horizontal Line */
+.navHorizontalLine {
+    width: 100%; /* Full width */
+    border: none;
+    border-top: 2px solid #141D1F; /* Light gray for separation */
+    margin: 16px 0; /* Space above and below */
+}
+
+/* Sign Out Button */
+.navSignOutButton {
+    display: block; /* Block display for full width */
+    width: 100%; /* Full width for click area */
+    color: #0077B5; /* LinkedIn blue */
+    font-weight: normal;
+    font-size: 16px; /* Adjusted for better readability */
+    font-family: Roboto, sans-serif;
+    text-align: center; /* Center text */
+    margin-top: 8px; /* Space from above elements */
+    transition: color 0.3s, text-decoration 0.3s; /* Smooth transitions */
+}
+
+.navSignOutButton:hover {
+    color: #FF6F61; /* Color change on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Disabled buttons when inactive */
+.navViewProfileButton:disabled,
+.navSignOutButton.disabled {
+    background-color: #ccc; /* Grayed-out background */
+    cursor: not-allowed; /* Change cursor to indicate it's disabled */
+    opacity: 0.6; /* Slight opacity to indicate it's disabled */
+    pointer-events: none; /* Disable interaction */
+}
+
+
+.title {
+    position: absolute;
+    top: 85px;
+    left: 240px; /* Adjusted left to give more room */
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: #FFFFFF;
+    z-index: 100; /* Added higher z-index to ensure visibility */
+}
+
+.subtitle {
+    position: absolute;
+    top: 120px;
+    left: 240px; /* Aligned subtitle with title */
+    font-family: 'Rubik', sans-serif;
+    font-weight: normal;
+    font-size: 15px;
+    color: #596265;
+    z-index: 100; /* Ensures subtitle stays visible */
+}
+
+
+/* Sales Overview Container */
+/* Purchase Overview Container */
+.sales-overview {
+    position: absolute;
+    top: 170px; /* Position remains unchanged */
+    left: 240px; /* Adjusted left position slightly */
+    width: 350px; /* Reduced width */
+    height: auto; /* Height adjusts dynamically */
+    max-height: 500px; /* Set a maximum height if needed */
+    background-color: #1D282F;
+    border-radius: 8px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sales Overview Header */
+.overview-header {
+    grid-column: span 2;
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    font-size: 12px; /* Font size remains unchanged */
+    color: #FFFFFF;
+    margin-bottom: 15px; /* Margin remains unchanged */
+}
+
+/* Sales Box */
+.sales-box {
+    background-color: #2A3945;
+    border-radius: 8px; /* Border radius remains unchanged */
+    padding: 10px; /* Padding remains unchanged */
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); /* Shadow remains unchanged */
+}
+
+/* Hover effect on sales box */
+.sales-box:hover {
+    transform: translateY(-4px); /* Hover effect remains unchanged */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow remains unchanged */
+}
+
+/* Icon Wrapper */
+.icon-wrapper {
+    background-color: #E1F4FE;
+    width: 45px; /* Width remains unchanged */
+    height: 45px; /* Height remains unchanged */
+    border-radius: 8px; /* Border radius remains unchanged */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px; /* Margin remains unchanged */
+}
+
+/* Sales Icon inside Icon Wrapper */
+.sales-icon {
+    width: 25px; /* Size remains unchanged */
+    height: 25px; /* Size remains unchanged */
+}
+
+/* Info Section for Sales Type and Amount */
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sales Type (e.g. Annual Sales, Daily Sales, etc.) */
+.sales-type {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    font-size: 8px; /* Font size remains unchanged */
+    color: rgba(255, 255, 255, 0.7); /* Color remains unchanged */
+    margin-bottom: 6px; /* Margin remains unchanged */
+}
+
+/* Sales Data Section */
+.sales-data {
+    display: flex;
+    align-items: center;
+}
+
+/* Peso Icon */
+.peso-icon {
+    width: 15px; /* Size remains unchanged */
+    height: 15px; /* Size remains unchanged */
+    margin-right: 4px; /* Margin remains unchanged */
+}
+
+/* Sales Amount */
+.sales-amount {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 12px; /* Font size remains unchanged */
+    color: #FFFFFF;
+}
+
+
+/* Purchase Overview Container */
+.purchase-overview {
+    position: absolute;
+    top: 170px; /* Position remains unchanged */
+    left: 680px; /* Adjusted left position slightly */
+    width: 350px; /* Reduced width */
+    height: auto; /* Height adjusts dynamically */
+    max-height: 500px; /* Set a maximum height if needed */
+    background-color: #1D282F;
+    border-radius: 8px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sales Overview Header */
+.overview-header {
+    grid-column: span 2;
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    font-size: 12px; /* Font size remains unchanged */
+    color: #FFFFFF;
+    margin-bottom: 15px; /* Margin remains unchanged */
+}
+
+/* Sales Box */
+.sales-box {
+    background-color: #2A3945;
+    border-radius: 8px; /* Border radius remains unchanged */
+    padding: 10px; /* Padding remains unchanged */
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); /* Shadow remains unchanged */
+}
+
+/* Hover effect on sales box */
+.sales-box:hover {
+    transform: translateY(-4px); /* Hover effect remains unchanged */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow remains unchanged */
+}
+
+/* Icon Wrapper */
+.icon-wrapper {
+    background-color: #E1F4FE;
+    width: 45px; /* Width remains unchanged */
+    height: 45px; /* Height remains unchanged */
+    border-radius: 8px; /* Border radius remains unchanged */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px; /* Margin remains unchanged */
+}
+
+/* Sales Icon inside Icon Wrapper */
+.sales-icon {
+    width: 25px; /* Size remains unchanged */
+    height: 25px; /* Size remains unchanged */
+}
+
+/* Info Section for Sales Type and Amount */
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sales Type (e.g. Annual Sales, Daily Sales, etc.) */
+.sales-type {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    font-size: 8px; /* Font size remains unchanged */
+    color: rgba(255, 255, 255, 0.7); /* Color remains unchanged */
+    margin-bottom: 6px; /* Margin remains unchanged */
+}
+
+/* Sales Data Section */
+.sales-data {
+    display: flex;
+    align-items: center;
+}
+
+/* Peso Icon */
+.peso-icon {
+    width: 15px; /* Size remains unchanged */
+    height: 15px; /* Size remains unchanged */
+    margin-right: 4px; /* Margin remains unchanged */
+}
+
+/* Sales Amount */
+.sales-amount {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 12px; /* Font size remains unchanged */
+    color: #FFFFFF;
+}
+
+
+.stock-overview {
+    position: absolute;
+    top: 170px; /* Position remains unchanged */
+    left: 1125px; /* Adjusted left position slightly */
+    width: 350px; /* Adjusted width to fit circle and labels */
+    height: 189px; /* Height remains unchanged */
+    background-color: #1D282F;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start (left) */
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensure content does not overflow */
+}
+
+/* Stock Header */
+.stock-header {
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    font-size: 12px; /* Font size remains unchanged */
+    color: #FFFFFF;
+    margin-bottom: 5px; /* Reduced margin to move content higher */
+}
+
+/* Circle and Info Container */
+.circle-and-info-container {
+    display: flex;
+    flex-direction: column; /* Stack circle and info vertically */
+    align-items: center; /* Center items horizontally */
+    width: 100%; /* Full width of the container */
+    margin-top: 10px; /* Space between the header and circle */
+}
+
+/* Circle Container */
+.circle-container {
+    display: flex;
+    top: -22px;
+    flex-direction: column;
+    align-items: center;
+    width: 120px; /* Adjusted width */
+    height: 120px; /* Adjusted height */
+    position: relative; /* Position for absolute children */
+}
+
+/* Circle */
+.circle {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg); /* Rotate to start the stroke from the top */
+}
+
+.circle .background {
+    fill: none;
+    stroke: #329189;
+    stroke-width: 10;
+}
+
+.circle .foreground {
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke: #D53E4F; /* Primary color for the circle */
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+/* Circle Content */
+.circle-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute; /* Position inside the circle */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle-number {
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    font-size: 24px; /* Bigger number */
+    color: #FFFFFF;
+}
+
+.circle-label {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300; /* Light text */
+    font-size: 12px; /* Smaller font size */
+    color: #FFFFFF;
+    margin-top: 0; /* No margin between number and label */
+}
+
+/* Stock Info Container */
+.stock-info-container {
+    display: flex;
+    flex-direction: column; /* Arrange labels side by side */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    margin-top: -15px; /* Space above the stock info */
+}
+
+/* Stock Info */
+.stock-info {
+    display: flex;
+    align-items: center;
+    margin-top: 5px; /* Space between each label */
+    margin-bottom: 5px;
+}
+
+/* Color Label */
+.color-label {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    margin-right: 5px; /* Space between color box and text */
+}
+
+.holding-stock {
+    margin-left: -3px;
+    background-color: #D53E4F; /* Color for Holding Stock */
+}
+
+.pending-stock {
+    background-color: #329189; /* Color for Pending Stock */
+}
+
+.stock-text {
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+.container {
+    position: absolute;
+    width: 600px;
+    height: 340px;
+    top: 415px;
+    left: 240px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #1D282F;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1; /* Set a base z-index for the container */
+}
+
+/* Text Labels */
+.label {
+    position: absolute;
+    font-size: 15px;
+    z-index: 3; /* Ensure text labels are above shapes */
+}
+.label.title {
+    top: 22px;
+    left: 30px;
+}
+.label.main-value {
+    font-weight: bold;
+    color: #59990A;
+    top: 21.62px;
+    left: 229px;
+}
+.label.comparison {
+    font-weight: bold;
+    color: #FFFFFF;
+    top: 21.62px;
+    left: 323.23px;
+}
+.label.value {
+    font-size: 12px;
+    font-weight: regular;
+    color: #FFFFFF;
+}
+.label.value1 {
+    top: 70px;
+    left: 47px;
+}
+.label.value2 {
+    top: 115px;
+    left: 47px;
+}
+.label.value3 {
+    top: 160px;
+    left: 47px;
+}
+.label.value4 {
+    top: 205px;
+    left: 47px;
+}
+.label.value5 {
+    top: 250px;
+    left: 47px;
+}
+.label.date {
+    font-size: 12px;
+    font-weight: regular;
+    color: #FFFFFF;
+    margin-right: auto;
+}
+.label.date1 {
+    top: 280px;
+    left: 116px;
+}
+.label.date2 {
+    top: 280px;
+    left: 209px;
+}
+.label.date3 {
+    top: 280px;
+    left: 306px;
+}
+.label.date4 {
+    top: 280px;
+    left: 387px;
+}
+.label.date5 {
+    top: 280px;
+    left: 459px;
+}
+.label.date6 {
+    top: 280px;
+    left: 528px;
+}
+.label.main-value1 {
+    z-index: 2; /* Ensure text labels are above shapes */
+    font-weight:lighter;
+    color: #FFFFFF;
+    font-size: 12px;
+    top: 127.2px;
+    left: 287px;
+}
+
+/* Icons */
+.icon {
+    position: absolute;
+    color: #FFFFFF; 
+    z-index: 2; /* Ensure icons are above shapes but below text labels */
+}
+.icon.peso {
+    width: 15px;
+    height: 15px;
+}
+.icon.peso1 {
+    top: 70px;
+    left: 30px;
+}
+.icon.peso2 {
+    top: 115px;
+    left: 30px;
+}
+.icon.peso3 {
+    top: 160px;
+    left: 30px;
+}
+.icon.peso4 {
+    top: 205px;
+    left: 30px;
+}
+.icon.peso5 {
+    top: 250px;
+    left: 30px;
+}
+.icon.top1 {
+    width: 20px;
+    height: 20px;
+    top: 20.62px;
+    left: 210px;
+}
+.icon.top2 {
+    color: #59990A;
+    width: 21.23px;
+    height: 21.23px;
+    top: 23px;
+    left: 298px;
+}
+.icon.top3 {
+    width: 15px;
+    height: 15px;
+    top: 125px;
+    left: 269px;
+}
+
+/* Shapes */
+.shape {
+    position: absolute;
+    z-index: 0; /* Ensure shapes are at the back */
+}
+.shape.ellipse1 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    top: 151px;
+    left: 290px;
+}
+.shape.ellipse2 {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #61A905;
+    top: 153.5px;
+    left: 292.5px;
+}
+.shape.rect1 {
+    width: 72px;
+    height: 24.59px;
+    background: #2A3945;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    top: 122px;
+    left: 264px;
+}
+.shape.rect2 {
+    width: 21.23px;
+    height: 21.23px;
+    background: #C3C3C3;
+    top: 20px;
+    left: 293px;
+}
+
+
+/* Lines */
+.line {
+    position: absolute;
+    z-index: 1; /* Ensure lines are above shapes but below text labels and icons */
+}
+.line.horizontal1,
+.line.horizontal2,
+.line.horizontal3,
+.line.horizontal4,
+.line.horizontal5,
+.line.horizontal6,
+.line.vertical {
+    background: #596265;
+}
+.line.horizontal1 {
+    height: 1px;
+    width: 454px;
+    top: 77px;
+    left: 116px;
+}
+.line.horizontal2 {
+    height: 1px;
+    width: 454px;
+    top: 113px;
+    left: 116px;
+}
+.line.horizontal3 {
+    height: 1px;
+    width: 454px;
+    top: 149px;
+    left: 116px;
+}
+.line.horizontal4 {
+    height: 1px;
+    width: 454px;
+    top: 185px;
+    left: 116px;
+}
+.line.horizontal5 {
+    height: 1px;
+    width: 454px;
+    top: 221px;
+    left: 116px;
+}
+.line.horizontal6 {
+    height: 1px;
+    width: 454px;
+    top: 257px;
+    left: 116px;
+}
+.line.vertical {
+    width: 1px;
+    height: 180px;
+    top: 77px;
+    left: 343px;
+}
+
+.chart-container {
+    background-color: #1D282F;
+    width: 450px; /* Width of the container */
+    height: 300px; /* Height of the container */
+    border-radius: 10px;
+    padding: 20px;
+    position: absolute;
+    top: 415px; /* Position from the top */
+    left: 900px; /* Position from the left */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-title {
+    color: #FFFFFF;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    left: 15px;
+    margin-bottom: 10px; /* Reduced margin for better fit */
+    position: absolute;
+    top: 0px; /* Position from the top of the container */
+    width: 100%;
+}
+
+  

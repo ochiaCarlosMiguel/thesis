@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" href="reports.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Rubik', sans-serif;
+            background-color: #141D1F; /* Frame background color */
+        }
+    </style>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="Frame"></div>
+        <!-- Product Text Label -->
+        
+         <!-- Taskbar -->
+         <nav class="taskbar">
+            <div class="logo">
+                <img src="loggo.jpg" alt="Sulit-Tech Logo" class="logo-icon">
+                <span class="sulit-tech">SULIT-TECH</span>
+            </div>
+            <div class="main-menu">Main Menu</div>
+            <ul class="menu">
+                <li class="menu-item dashbox" onclick="location.href='dashboard.html';highlightBox('dashbox')">
+                    <i class="fa-solid fa-tachometer-alt" style="margin-right: 30px; font-size: 25px;""></i>
+                    <span class="menu-text">Dashboard</span>
+                </li>
+                <li class="menu-item prodbox" onclick="location.href='product.html'; highlightBox('prodbox')">
+                    <i class="fa-solid fa-qrcode" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Product</span>
+                </li>
+                <li class="menu-item salesbox" onclick="location.href='customerSale.html'; highlightBox('salesbox')">
+                    <i class="fa-solid fa-arrow-up-wide-short" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Sales</span>
+                </li>
+                <li class="menu-item repbox" onclick="highlightBox('repbox')">
+                    <i class="fa-solid fa-clipboard-list" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Report</span>
+                </li>
+                <li class="menu-item transbox" onclick="location.href='transaction.html';highlightBox('transbox')">
+                    <i class="fa-solid fa-receipt" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Transaction</span>
+                </li>
+                <li class="menu-item adbox" onclick="location.href='admin.html';highlightBox('adbox')">
+                    <i class="fa-solid fa-user-shield" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Admin</span>
+                </li>
+            </ul>
+            <div class="main-menu">Help & Settings</div>
+            <ul class="menu">
+                <li class="menu-item helpbox" onclick="location.href='hc.html';highlightBox('helpbox')">
+                    <i class="fa-solid fa-question-circle" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Help & Center</span>
+                </li>
+                <li class="menu-item setbox" onclick="location.href='settings.html';highlightBox('setbox')">
+                    <i class="fa-solid fa-cog" style="margin-right: 30px; font-size: 25px;"></i>
+                    <span class="menu-text">Settings</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="navSearch">
+                <input type="text" class="navSearchInput" placeholder="Search...">
+                <i class="fa fa-xmark navClearIcon"></i>
+            </div>
+            <div class="navProfileSection" id="profileSection">
+                <img src="photo.jpg" alt="Profile" class="navProfileImage">
+                <i class="fa fa-caret-down" style="margin-left: 5px;"></i> <!-- Caret Down Icon -->
+                <div class="navDropdownContent">
+                    <img src="photo.jpg" alt="Profile" class="navDropdownProfileImage">
+                    <span class="navDropdownUserName">Carlos Miguel Ochia</span>
+                    <span class="navDropdownJobPosition">Warehouse specialist</span>
+                    <button id="navViewProfileButton" class="navViewProfileButton">View Profile</button>
+                    <hr class="navHorizontalLine">
+                    <a href="Login.html" class="navSignOutButton">Sign Out</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="repContainer">
+            <div class="repTitle">Reports</div>
+            
+            <button class="repGenerateButton">Generate</button>
+            
+            <label class="repLabel1">Location</label>
+            <label class="repLabel2">Type of Report</label>
+            <label class="repLabel3">Date Started</label>
+            <label class="repLabel4">Date Ended</label>
+            
+            <div class="repDropdownContainer">
+                <!-- Location Dropdown -->
+                <div class="repDropdownWrapper">
+                    <div class="repLocationButton" id="location-button">
+                        <span class="repButtonText">Select Location</span>
+                        <i class="fa-solid fa-caret-down repCaretIcon"></i>
+                    </div>
+                    <div class="repDropdownContent" id="location-dropdown">
+                        <a href="#" data-location="Pulilan Warehouse">Pulilan Warehouse</a>
+                        <a href="#" data-location="Main Office">Main Office</a>
+                        <a href="#" data-location="Branch Office">Branch Office</a>
+                        <a href="#" data-location="Recto Warehouse">Recto Warehouse</a>
+                    </div>
+                </div>
+        
+                <!-- Type of Report Dropdown -->
+                <div class="repDropdownWrapper">
+                    <div class="repLocationButton" id="report-button">
+                        <span class="repButtonText">Select Report Type</span>
+                        <i class="fa-solid fa-caret-down repCaretIcon"></i>
+                    </div>
+                    <div class="repDropdownContent" id="report-dropdown">
+                        <a href="#" data-report="Inventory Report">Inventory Report</a>
+                        <a href="#" data-report="Sales Report">Sales Report</a>
+                        <a href="#" data-report="Stock Report">Stock Report</a>
+                    </div>
+                </div>
+        
+                <!-- Date Started Input -->
+                <div class="repDropdownWrapper">
+                    <input type="date" class="repDateInput" id="date-start" placeholder="Date Start">
+                </div>
+        
+                <!-- Date Ended Input -->
+                <div class="repDropdownWrapper">
+                    <input type="date" class="repDateInput" id="date-end" placeholder="Date End">
+                </div>
+            </div>
+        
+            <!-- Waybill Paper Section -->
+            <div class="waybillContainer">
+                <h3>Waybill Report Preview</h3>
+                <div class="waybillPaper">
+                    <!-- Content for the waybill will go here -->
+                </div>
+            </div>
+        </div>
+        
+        <script src="reports.js"></script>
+</body>
+</html>

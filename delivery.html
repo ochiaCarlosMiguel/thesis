@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" href="delivery.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Rubik', sans-serif;
+            background-color: #141D1F; /* Frame background color */
+        }
+    </style>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="title">Add Purchase Order</div>
+    <div class="subtitle">Delivery Details</div>
+        <!-- Product Text Label -->
+        
+<!-- Taskbar -->
+<nav class="taskbar">
+    <div class="logo">
+        <img src="loggo.jpg" alt="Sulit-Tech Logo" class="logo-icon">
+        <span class="sulit-tech">SULIT-TECH</span>
+    </div>
+    <div class="main-menu">Main Menu</div>
+    <ul class="menu">
+        <li class="menu-item dashbox" onclick="location.href='dashboard.html';highlightBox('dashbox')">
+            <i class="fa-solid fa-tachometer-alt" style="margin-right: 30px; font-size: 25px;"></i>
+            <span class="menu-text">Dashboard</span>
+        </li>
+        <li class="menu-item prodbox" onclick="location.href='product.html'; highlightBox('prodbox')">
+            <i class="fa-solid fa-qrcode" style="margin-right: 30px; font-size: 25px;"></i>
+            <span class="menu-text">Product</span>
+        </li>
+        <li class="menu-item salesbox" onclick="location.href='customerSale.html'; highlightBox('salesbox')">
+            <i class="fa-solid fa-arrow-up-wide-short" style="margin-right: 30px; font-size: 25px;"></i>
+            <span class="menu-text">Sales</span>
+        </li>
+        <li class="menu-item repbox" onclick="location.href='reports.html';highlightBox('repbox')">
+            <i class="fa-solid fa-clipboard-list" style="margin-right: 30px; font-size: 25px;"></i>
+            <span class="menu-text">Report</span>
+        </li>
+        <li class="menu-item transbox" onclick="location.href='transaction.html';highlightBox('transbox')">
+            <i class="fa-solid fa-receipt" style="margin-right: 30px; font-size: 25px;"></i>
+            <span class="menu-text">Transaction</span>
+        </li>
+        <li class="menu-item adbox" onclick="location.href='admin.html';highlightBox('adbox')">
+            <i class="fa-solid fa-user-shield" style="margin-right: 30px; font-size: 25px;"></i>
+            <span class="menu-text">Admin</span>
+        </li>
+    </ul>
+    <div class="main-menu">Help & Settings</div>
+    <ul class="menu">
+        <li class="menu-item helpbox" onclick="location.href='hc.html';highlightBox('helpbox')">
+            <i class="fa-solid fa-question-circle" style="margin-right: 30px; font-size: 25px;"></i>
+            <span class="menu-text">Help & Center</span>
+        </li>
+        <li class="menu-item setbox" onclick="location.href='settings.html';highlightBox('setbox')">
+            <i class="fa-solid fa-cog" style="margin-right: 30px; font-size: 25px;"></i>
+            <span class="menu-text">Settings</span>
+        </li>
+    </ul>
+</nav>
+
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="navSearch">
+                <input type="text" class="navSearchInput" placeholder="Search...">
+                <i class="fa fa-xmark navClearIcon"></i>
+            </div>
+            <div class="navProfileSection" id="profileSection">
+                <img src="photo.jpg" alt="Profile" class="navProfileImage">
+                <i class="fa fa-caret-down" style="margin-left: 5px;"></i> <!-- Caret Down Icon -->
+                <div class="navDropdownContent">
+                    <img src="photo.jpg" alt="Profile" class="navDropdownProfileImage">
+                    <span class="navDropdownUserName">Carlos Miguel Ochia</span>
+                    <span class="navDropdownJobPosition">Warehouse specialist</span>
+                    <button id="navViewProfileButton" class="navViewProfileButton">View Profile</button>
+                    <hr class="navHorizontalLine">
+                    <a href="Login.html" class="navSignOutButton">Sign Out</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- General Information Taskbar -->
+        <nav class="hcGeneralTaskbar">
+            <a href="#" class="help-center" id="backToPurchase">
+                <i class="fa-solid fa-arrow-left" style="margin-right: 5px;"></i>
+                back to purchase list
+            </a>
+            <ul class="hcMenu">
+                <!-- General Information Button -->
+                <li class="hcItem generalInfoBox" highlightBox('generalInfoBox')">
+                    <i class="fa-solid fa-info-circle" style="margin-right: 20px; font-size: 20px;"></i>
+                    <span class="hcText">General Information</span>
+                    <span class="step-text">STEP 1</span>
+                </li>
+                <!-- Delivery Details Button -->
+                <li class="hcItem deliveryInfobox" highlightBox('deliveryInfobox')">
+                    <i class="fa-solid fa-truck" style="margin-right: 20px; font-size: 20px;"></i>
+                    <span class="hcText">Delivery Details</span>
+                    <span class="step-text">STEP 2</span>
+                </li>
+                <!-- Product Button -->
+                <li class="hcItem productInfobox" highlightBox('productInfobox')">
+                    <i class="fa-solid fa-box" style="margin-right: 20px; font-size: 20px;"></i>
+                    <span class="hcText">Product</span>
+                    <span class="step-text">STEP 3</span>
+                </li>
+                <!-- Send Email Button -->
+                <li class="hcItem sendEmailBox" highlightBox('sendEmailBox')">
+                    <i class="fa-solid fa-envelope" style="margin-right: 20px; font-size: 20px;"></i>
+                    <span class="hcText">Send Email</span>
+                    <span class="step-text">STEP 4</span>
+                </li>
+            </ul>
+        </nav>
+<!-----------------------------Process Details------------------------------------------->
+<div class="genRectangleBox">
+    <!-- 1. Retailer Dropdown -->
+    <div class="form-group">
+        <label for="retailer">Retailer</label>
+        <div class="dropdown">
+            <select id="retailer" class="dropdown-select">
+                <option value="">Select Retailer</option>
+                <!-- Add options here -->
+            </select>
+        </div>
+    </div>
+
+    <!-- 2. Street Text Field -->
+    <div class="form-group">
+        <label for="street">Street</label>
+        <input type="text" id="street" class="input-field" placeholder="Enter Street Name">
+    </div>
+
+    <div class="form-row">
+        <!-- 3. City Dropdown -->
+        <div class="form-group half-width">
+            <label for="city">City</label>
+            <div class="dropdown">
+                <select id="city" class="dropdown-select">
+                    <option value="">Choose City</option>
+                    <!-- Add options here -->
+                </select>
+            </div>
+        </div>
+
+        <!-- 4. Zip Code Dropdown -->
+        <div class="form-group half-width">
+            <label for="zip-code">Zip Code</label>
+            <div class="dropdown">
+                <select id="zip-code" class="dropdown-select">
+                    <option value="">Select Zip Code</option>
+                    <!-- Add options here -->
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------------------------Button------------------------------------------->
+<div class="next-button-container">
+    <button class="prev-button">Previous</button>
+    <button class="next-button">Next</button>
+</div>
+
+<script src="delivery.js"></script>
+</body>
+</html>
